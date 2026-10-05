@@ -14,8 +14,8 @@ def clean(text):
 
 @st.cache_resource
 def load_models():
-    model = joblib.load("models/lr_model.pkl")
-    vec = joblib.load("models/vectorizer.pkl")
+    model = joblib.load("lr_model.pkl")
+    vec = joblib.load("vectorizer.pkl")
     return model, vec
 
 
@@ -54,7 +54,7 @@ st.sidebar.markdown("**Layer 1:** Rule engine (known attack patterns)")
 st.sidebar.markdown("**Layer 2:** ML classifier (TF-IDF + Logistic Regression)")
 try:
     st.sidebar.subheader("Model performance")
-    st.sidebar.dataframe(pd.read_csv("models/results.csv"), hide_index=True)
+    st.sidebar.dataframe(pd.read_csv("results.csv"), hide_index=True)
 except Exception:
     pass
 
